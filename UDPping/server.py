@@ -6,6 +6,7 @@ from socket import *
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(("", 6789))
 # 注意，UDP协议不需要服务端监听  serverSocket.listen()
+print("服务器开启...")
 while True:
 	# 随机丢包种子数
 	rand = random.randint(0, 10)
