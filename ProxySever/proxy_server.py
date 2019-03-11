@@ -18,8 +18,6 @@ while True:
 
 	# Extract the filename from the given message
 	filename = message.split()[1].partition("//")[2].replace('/', '_')
-	# hostn = message.split()[1][1:]
-	# filename = hostn.replace('.', '_')
 	fileExist = "false"
 	try:
 		# 检查缓存中是否存在该文件
@@ -56,12 +54,6 @@ while True:
 				# 代理服务器把客户端的请求送给目标服务器
 				c.sendall(message.encode())
 
-				#
-				# Read the response into buffer# Create a new file in the cache for the requested file.
-				# 				# # Also send the response in the buffer to client socket and the corresponding file in the cache
-				# 				# fileobj = c.makefile('rwb', 0)
-				# 				# fileobj.write(("GET " + "http://" + hostn + " HTTP/1.0\n\n").encode())
-				# rsps_buff = fileobj.readlines()
 				rsps_buff = c.recv(2048)
 
 				# Create a new file in the cache for the requested file.
